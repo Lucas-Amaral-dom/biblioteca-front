@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Cadastro from './components/Cadastro';
+import AlunoDashboard from './components/DashBoardDoAluno';
+import ProfessorDashboard from './components/ProfessorDashBoard';
+import AdminDashboard from './components/DashBoardDoAdmin';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/aluno/dashboard" element={<AlunoDashboard />} />
+                <Route path="/professor/dashboard" element={<ProfessorDashboard />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="/" element={<Login />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
